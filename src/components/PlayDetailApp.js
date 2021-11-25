@@ -30,18 +30,19 @@ class PlayDetailApp extends React.Component {
             //if not saved data is found, fetch
             if (!foundPlayData) {
                 try {
-                    const url = "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" + this.props.play.id;
+                    const url = "https://comp4513-assign2-node.herokuapp.com/api/play/" + this.props.play.id;
                     const response = await fetch(url);
                     const data = await response.json();
-                    this.setState({playData: data});
+                    const playText = data[0].playText;
+                    this.setState({playData: playText});
+                    console.log(playText);
                     
                     //set current act and scene with first in arrays
-                    this.setState({currentAct: data.acts[0]});
-                    this.setState({currentScene: data.acts[0].scenes[0]});
+                    this.setState({currentAct: playText.acts[0]});
+                    this.setState({currentScene: playText.acts[0].scenes[0]});
                     
                     //save play data
-                    this.props.savePlayData(this.props.play, data);
-                    //console.log(data);
+                    this.props.savePlayData(this.props.play, playText);
                 } 
                 catch {
                     console.error("fetch error");
