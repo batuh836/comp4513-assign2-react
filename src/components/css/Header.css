@@ -5,12 +5,10 @@
     border-radius: 5px;
     height: 5vh;
     padding: 15px;
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
 }
 
 .header span {
+    float: left;
     font-weight: bolder;
     font-size: 1.75em;
 }
@@ -18,4 +16,6 @@
 .header button {
     height: 100%;
     width: 100px;
+    float: right;
+    margin-left: 10px;
 }
