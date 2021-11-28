@@ -13,8 +13,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         //set states to initial values
-        this.state = {user: null,
-                      plays: [],
+        this.state = {plays: [],
                       genres: [],
                       currentPlay: null,
                       filteredPlays: [],
@@ -24,19 +23,6 @@ class App extends React.Component {
     }
                             
     async componentDidMount() {
-//        if (!this.state.user) {
-//            try {
-//                const url = "https://comp4513-assign2.herokuapp.com/user";
-//                const response = await fetch(url);
-//                const data = await response.json();
-//                this.setState({user: data});
-//                console.log(data);
-//            } 
-//            catch {
-//                console.error("fetch error");
-//            }
-//        }
-        
         //only get data if plays is empty
         if (!this.state.plays.length) {
             try {
